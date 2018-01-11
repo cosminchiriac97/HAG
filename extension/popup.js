@@ -2,9 +2,15 @@
     console.log(tab[0].getElementsByTagName("p")[0]);
 });
 */
+
 chrome.runtime.onMessage.addListener(function(request, sender) {
-    if (request.action == "getSource") {
-      message.innerText = request.source;
+    if (request.action == "getEmails") {
+      var arr_result = request.source;
+      var text = '';
+      arr_result.forEach(function(element) {
+        text += element +'\n';
+      });
+      message.innerText = text;
     }
   });
   
@@ -13,7 +19,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
     var message = document.querySelector('#message');
   
     chrome.tabs.executeScript(null, {
-      file: "getPagesSource.js"
+      file: "getEmails.js"
     }, function() {
       // If you try and inject into an extensions page or the webstore/NTP you'll get an error
       if (chrome.runtime.lastError) {
