@@ -1,6 +1,17 @@
-
-function getSchemasJson(document_root) {
+function getSchemasJson(document_root){
     var result = {};
+    var items = [];
+    schemasName.forEach(function(element){
+        getSchemaJson(document_root,"http://schema.org/"+element).forEach(function(elSchema){
+            items.push(elSchema);
+        });
+    });
+    result.items = items;
+    return result.items;
+}
+
+function getSchemaJson(document_root,schemaName) {
+    
     var items = [];
     var query = "[itemscope][itemtype=" + "'" + schemaName + "'" + "]";
     var nodesArray = [].slice.call(document_root.querySelectorAll("[itemscope][itemtype=" + "'" + schemaName + "'" + "]"));
@@ -57,9 +68,9 @@ function getSchemasJson(document_root) {
 
         });
     }
-    result.items = items;
-    return result.items;
+    return items;
 }
+
 function check(parent, child) {
     while (true) {
         if (typeof child.parentNode === undefined || typeof child === undefined)

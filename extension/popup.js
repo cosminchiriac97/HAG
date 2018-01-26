@@ -11,9 +11,9 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
   
   function onWindowLoad() {
     var message = document.querySelector('#message');
-
+    var array = ["Event","Organization","TouristAttraction"]
     chrome.tabs.executeScript(null, {
-      code: 'var schemaName = "http://schema.org/Event";'
+      code: 'var schemasName =' + JSON.stringify(array)
     });
 
     chrome.tabs.executeScript(null, {
