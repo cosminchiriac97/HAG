@@ -1,4 +1,4 @@
-function createHtml(json, parent) {
+function createRDFaHtml(json, parent) {
     for (let key in json) {
         if (key == '@context') {
             let vocab = document.createAttribute('vocab');
@@ -52,7 +52,7 @@ function parseJSONToRDFaHTML(jsons){
     var exportDoc = document.implementation.createHTMLDocument("RDFa-HTML-Export");
     jsons.forEach(json => {
         let div = document.createElement('div');
-        createHtml(json, div);
+        createRDFaHtml(json, div);
         exportDoc.body.appendChild(div);
     });
     return exportDoc;
