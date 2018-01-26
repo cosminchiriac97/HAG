@@ -1,7 +1,4 @@
-/*chrome.tabs.query({active:true, currentWindow:true}, function(tab){
-    console.log(tab[0].getElementsByTagName("p")[0]);
-});
-*/
+
 
 chrome.runtime.onMessage.addListener(function(request, sender) {
     if (request.action == "getSchemas") {
