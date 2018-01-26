@@ -213,7 +213,7 @@ function startParsing(elemelon) {
 
 function start() {
     let jsons = [];
-    schemes.forEach(scheme => {
+    schemaNames.forEach(scheme => {
         let allTags = Array.prototype.slice.call(document.querySelectorAll('[typeof=\"' + scheme + '\"]'));
         allTags = allTags.concat(Array.prototype.slice.call(document.querySelectorAll('[typeof=\"http://schema.org/' + scheme + '\"]')));
         for (let i = 0; i < allTags.length; i++) {
