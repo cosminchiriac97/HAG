@@ -31,6 +31,16 @@ function objectToJson(rdfaObj) {
     return json;
 }
 
+function ValidURL(str) {
+    var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+    var regex = new RegExp(expression);
+    if (!regex.test(str)) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
 function parseRdfa(element, rdfObj) {
     if (element.hasAttribute('vocab')) {
         let context = {
@@ -42,6 +52,11 @@ function parseRdfa(element, rdfObj) {
     if (element.hasAttribute('property') && element.hasAttribute('typeof')) {
 
         let attributes = element.getAttribute('property').split(" ");
+
+        let type;
+        if (ValidURL(element.getAttribute("typeof")))
+            type = new URL(element.getAttribute("typeof")).pathname.replace('/', '')
+        else type = element.getAttribute("typeof");
 
         attributes.forEach(attr => {
             if (rdfObj.contains(attr) == true) {
@@ -66,9 +81,10 @@ function parseRdfa(element, rdfObj) {
                         }
                     }
                 };
+
                 let pred_obj2 = {
                     predicate: '@type',
-                    object: [element.getAttribute('typeof')],
+                    object: [type],
                     addEl: function (el) {
                         this.object.push(el);
                     }
@@ -90,7 +106,7 @@ function parseRdfa(element, rdfObj) {
                 };
                 let pred_obj2 = {
                     predicate: '@type',
-                    object: [element.getAttribute('typeof')],
+                    object: [type],
                     addEl: function (el) {
                         this.object.push(el);
                     }
@@ -125,9 +141,14 @@ function parseRdfa(element, rdfObj) {
             }
         });
     } else if (element.hasAttribute('typeof')) {
+        let type;
+        if (ValidURL(element.getAttribute("typeof")))
+                    type = new URL(element.getAttribute("typeof")).pathname.replace('/', '')
+                else type = element.getAttribute("typeof");
+
         let pred_obj = {
             predicate: '@type',
-            object: [element.getAttribute('typeof')]
+            object: [type]
         };
         rdfObj.addEl(pred_obj);
         let children = element.children;
@@ -213,11 +234,12 @@ function startParsing(elemelon) {
 
 function start() {
     let jsons = [];
-    schemaNames.forEach(scheme => {
-        let allTags = Array.prototype.slice.call(document.querySelectorAll('[typeof=\"' + scheme + '\"]'));
+    schemasName.forEach(scheme => {
+        let allTags = Array.prototype.slice.call(document.querySelectorAll('[typeof]'));
         allTags = allTags.concat(Array.prototype.slice.call(document.querySelectorAll('[typeof=\"http://schema.org/' + scheme + '\"]')));
         for (let i = 0; i < allTags.length; i++) {
             json = startParsing(allTags[i]);
+            console.log(json);
             jsons.push(json);
         }
     });
