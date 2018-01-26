@@ -21,8 +21,16 @@ function pairToJson(pair) {
     return json;
 }
 function objectToJson(rdfaObj) {
-    let json = '{';
+    let json;
     let i;
+    if(rdfaObj.list.length == 1){
+        var regex = /["\w"]+:/;
+        json = pairToJson(rdfaObj.list[0]);
+        var matches = regex.exec(json);
+        json = json.slice(matches[0].length + 1);
+        return json;
+    }
+    json = '{';
     for (i = 0; i < rdfaObj.list.length - 1; i++) {
         json = json.concat(pairToJson(rdfaObj.list[i]), ',');
     }
@@ -235,7 +243,7 @@ function startParsing(elemelon) {
 function start() {
     let jsons = [];
     schemasName.forEach(scheme => {
-        let allTags = Array.prototype.slice.call(document.querySelectorAll('[typeof]'));
+        let allTags = Array.prototype.slice.call(document.querySelectorAll('[typeof=\"' + scheme + '\"]'));
         allTags = allTags.concat(Array.prototype.slice.call(document.querySelectorAll('[typeof=\"http://schema.org/' + scheme + '\"]')));
         for (let i = 0; i < allTags.length; i++) {
             json = startParsing(allTags[i]);
