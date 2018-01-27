@@ -1,9 +1,74 @@
 <!DOCTYPE html>
-<html style=''>
+<html>
+
 <head>
-<script src='popup.js'></script>
+    <link rel="stylesheet" href='WebDI.css'>
+    <script src='popup.js'></script>
 </head>
-<body style="width:400px;">
-<div id='message'>Injecting Script....</div>
+
+<body>
+    <div class="tab">
+        <button class="tablinks" id="homeButt">Home</button>
+        <button class="tablinks" id="settingsButt">Settings</button>
+        <img style="float:right;width:50px;height:45px;" src="icon.png">
+    </div>
+
+    <div id="Home" class="tabcontent">
+    </div>
+
+    <div id="Settings" class="tabcontent">
+        <h3>Exports</h3>
+        <ul>
+            <ul>
+                <button class="export" id="exportMicrodataButt">Export as Microdata</button>
+            </ul>
+            <ul>
+                <button class="export" id="exportRDFaButt">Export as RDFa</button>
+            </ul>
+            <ul>
+                <button class="export" id="exportJSONLDButt">Export as JSON-LD</button>
+            </ul>
+        </ul>
+        <h3>Legend</h3>
+        <table class="details" id="legend">
+            <tr>
+                <th>Tree Depth/Color</th>
+            </tr>
+            <tr>
+                <td id="level-1">1</td>
+            </tr>
+            <tr>
+                <td id="level-2">2</td>
+            </tr>
+            <tr>
+                <td id="level-3">3</td>
+            </tr>
+            <tr>
+                <td id="level-4">4</td>
+            </tr>
+            <tr>
+                <td id="level-5">5</td>
+            </tr>
+        </table>
+        <h3>Formats</h3>
+        <div id="formats">
+            <input type="checkbox" class="regcheckbox" name="format" id="JSON-LD"> JSON-LD
+            <input type="checkbox" class="regcheckbox" name="format" id="RDFa"> RDFa
+            <input type="checkbox" class="regcheckbox" name="format" id="Microdata"> Microdata
+        </div>
+        <h3>Current filters</h3>
+        <input type="checkbox" class="regcheckbox" name="filters" id="filterCheck"> No filters (Checking this will erase all current filters)
+        <div id="currFilters"></div>
+        <h3>Types</h3>
+        <input id="searchTypes" type="select" placeholder="Search for type">
+        <button id="addFilter">Add filter</button>
+        <button id="removeFilter">Remove filter</button>
+        <div id="errorSearch"> Type not found or already added.</div>
+        <div id="validTypes"></div>
+
+    </div>
+
+
 </body>
+
 </html>
