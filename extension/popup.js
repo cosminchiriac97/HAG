@@ -345,6 +345,7 @@ function onWindowLoad() {
       changeTab("Home");
     });
     document.getElementById("searchTypes").addEventListener("input", function () {
+      document.getElementById("errorSearch").style.display = "none";
       var counter = 0;
       document.getElementById("validTypes").innerHTML = '';
       for (var i = 0; i < Types.length && counter < 5; i++) {
@@ -363,14 +364,20 @@ function onWindowLoad() {
 
     document.getElementById("addFilter").addEventListener("click", function () {
       var alreadyFilter = true;
+      if (currTypes == Types){
+        currTypes = [];
+      }
       for (var i = 0; i < currTypes.length; i++) {
         if (document.getElementById("searchTypes").value == currTypes[i]) {
+          document.getElementById("errorSearch").style.display = "block";
           return;
         }
       };
-      currTypes[currTypes.length] = document.getElementById("searchTypes").value;
-      updateFilters();
-      saveFilters(currTypes);
+      if (document.getElementById("searchTypes").value.trim().length > 0) {
+        currTypes[currTypes.length] = document.getElementById("searchTypes").value;
+        updateFilters();
+        saveFilters(currTypes);
+      }
     });
 
     document.getElementById("removeFilter").addEventListener("click", function () {
@@ -997,7 +1004,6 @@ var Types = [
   "Mountain",
   "Volcano",
   "LandmarksOrHistoricalBuildings",
-  "LocalBusiness",
   "Residence",
   "ApartmentComplex",
   "GatedResidenceCommunity",
