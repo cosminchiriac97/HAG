@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 var temp;
 var extractedJson = [];
 
@@ -93,13 +92,6 @@ function process(key, value, level) {
     }
     else {
       temp.appendChild(tr);
-=======
-
-
-chrome.runtime.onMessage.addListener(function(request, sender) {
-    if (request.action == "getSchemas") {
-      message.insertAdjacentHTML("beforeend", "<pre>" + JSON.stringify(request.source, null, 2) + "<pre>");
->>>>>>> d9e093a9b33f523d3b3520a58b5d927013215d3b
     }
   }
 }
@@ -170,7 +162,6 @@ function onWindowLoad() {
       start();
     });
   });
-<<<<<<< HEAD
 
   eventListeners();
 
@@ -300,22 +291,6 @@ function onWindowLoad() {
         document.getElementById("removeFilter").disabled = false;
         currTypes = [];
         updateFilters();
-=======
-  
-  function onWindowLoad() {
-    var message = document.querySelector('#message');
-    var array = ["Event","Organization","TouristAttraction"]
-    chrome.tabs.executeScript(null, {
-      code: 'var schemasName =' + JSON.stringify(array)
-    });
-
-    chrome.tabs.executeScript(null, {
-      file: "getJSONFromMicrodata.js"
-    }, function() {
-      // If you try and inject into an extensions page or the webstore/NTP you'll get an error
-      if (chrome.runtime.lastError) {
-        message.innerText = 'There was an error injecting script : \n' + chrome.runtime.lastError.message;
->>>>>>> d9e093a9b33f523d3b3520a58b5d927013215d3b
       }
 
     });
@@ -396,7 +371,6 @@ function onWindowLoad() {
         }
       };
     });
-<<<<<<< HEAD
   }
 }
 function getColorByLevel(level) {
@@ -1020,8 +994,3 @@ var Types = [
   "SomeProducts",
   "Vehicle",
   "Car"]
-=======
-}
-  
-  window.onload = onWindowLoad;
->>>>>>> d9e093a9b33f523d3b3520a58b5d927013215d3b
