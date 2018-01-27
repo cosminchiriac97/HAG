@@ -1,5 +1,6 @@
 * {
-    font-family: "Lucida Console", Monaco, monospace;
+    font-family:"Lucida Console", Monaco, monospace
+
 }
 body {font-family: Arial;
 width: 700px;}
@@ -30,6 +31,7 @@ a{
     padding: 8px;
     font-size: 16px;
     word-wrap: break-word;
+    word-break: break-all;
     white-space: normal;
 }
 

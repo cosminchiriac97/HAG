@@ -75,12 +75,15 @@ function process(key, value, level) {
     cell2.style.background = getColorByLevel(level);
     cell1.style.paddingLeft = (level * 15 + 5) + 'px';
     if (ValidIMGURL(value)) {
+      var a = document.createElement('a');
       var img = document.createElement('img');
       img.src = value;
-      img.style.width = "100%";
-      img.style.height = "100%";
+      img.style.width = "500px";
+      img.style.height = "200px";
       cell2.textContent = '';
-      cell2.appendChild(img);
+      a.href = value;
+      a.appendChild(img);
+      cell2.appendChild(a);
       temp.appendChild(tr);
     } else if (ValidURL(value)) {
       var a = document.createElement('a');
@@ -95,7 +98,6 @@ function process(key, value, level) {
     }
   }
 }
-
 function traverse(level, o, func) {
   for (var i in o) {
     if (o[i] !== null && typeof (o[i]) != "object") {
@@ -244,6 +246,12 @@ function onWindowLoad() {
     }
   }
   function eventListeners() {
+    var anchors = document.getElementsByTagName("a");
+    for (var k = 0; k<anchors.length; k++){
+      anchors[k].addEventListener("click", function () {
+        chrome.tabs.create({url: this.href});
+      });
+    }
     document.getElementById("refreshButt").addEventListener("click", function () {
       document.getElementById("Home").innerHTML = '';
       refresh();
