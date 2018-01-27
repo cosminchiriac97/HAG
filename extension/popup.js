@@ -344,6 +344,9 @@ function onWindowLoad() {
     document.getElementById("homeButt").addEventListener("click", function () {
       changeTab("Home");
     });
+    document.getElementById("welcomeButt").addEventListener("click", function () {
+      changeTab("Welcome");
+    });
     document.getElementById("searchTypes").addEventListener("input", function () {
       document.getElementById("errorSearch").style.display = "none";
       var counter = 0;

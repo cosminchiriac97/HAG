@@ -7,14 +7,20 @@
 </head>
 
 <body>
+
     <div class="tab">
-        <button class="tablinks" id="homeButt">Home</button>
+        <!-- <button class="tablinks" id="welcomeButt">Welcome</button> -->
+        <button class="tablinks" id="homeButt">Results</button>
         <button class="tablinks" id="settingsButt">Settings</button>
         <button class="tablinks" id="refreshButt">Refresh</button>
         <img style="float:right;width:50px;height:45px;" src="icon.png">
     </div>
-
+    <div id="Welcome" class="tabcontent">
+        <h2>Welcome to WeDI! You can find the documentation
+            <a href="">here</a>.</h2>
+    </div>
     <div id="Home" class="tabcontent">
+
     </div>
 
     <div id="Settings" class="tabcontent">
@@ -58,10 +64,11 @@
         <div id="currFilters"></div>
         <h3>Types</h3>
         <input id="searchTypes" type="select" placeholder="Search for type">
-        <button id="addFilter">Add filter</button>
-        <button id="removeFilter">Remove filter</button>
+        <br>
         <div id="errorSearch"> Type not found or already added.</div>
         <div id="validTypes"></div>
+        <button id="addFilter" class="export">Add filter</button>
+        <button id="removeFilter" class="export">Remove filter</button>
 
     </div>
 
