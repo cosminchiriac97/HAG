@@ -65,6 +65,8 @@ table tr:hover {background-color: #ddd;}
     transition: 0.3s;
     font-size: 17px;
 }
+
+
 .export{
     background-color: rgb(72, 208, 116);
     border: 1px solid #ddd;
@@ -72,7 +74,7 @@ table tr:hover {background-color: #ddd;}
     padding: 8px;
     color: white;
     font-size: 16px;
-    width: 90%;
+    width: 40%;
     margin-top: 10px;
 
 }

@@ -111,6 +111,9 @@ function traverse(level, o, func) {
 }
 
 function ValidURL(str) {
+  if (str.toString().indexOf(' ') !== -1) {
+    return false;
+  }
   var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
   var regex = new RegExp(expression);
   if (!regex.test(str)) {
@@ -143,11 +146,15 @@ function getTableFormat() {
   tr.appendChild(header);
   temp.appendChild(tr);
 }
+var currFormats = [];
+var currTypes = [];
+var refreshC = 0;
+function refresh() {
+  onWindowLoad();
+}
 
 function onWindowLoad() {
-  var currFormats = [];
-  var currTypes = [];
-
+  extractedJson = [];
   chrome.storage.sync.get("currFilters", function (result) {
     currTypes = Types;
     if (result.currFilters) {
@@ -163,7 +170,10 @@ function onWindowLoad() {
     });
   });
 
-  eventListeners();
+  if (refreshC == 0) {
+    refreshC++;
+    eventListeners();
+  }
 
   function updateFormats() {
     formats = document.getElementsByName("format");
@@ -234,6 +244,10 @@ function onWindowLoad() {
     }
   }
   function eventListeners() {
+    document.getElementById("refreshButt").addEventListener("click", function () {
+      document.getElementById("Home").innerHTML = '';
+      refresh();
+    });
     document.getElementById("exportMicrodataButt").addEventListener("click", function () {
       chrome.tabs.executeScript(null, {
         code: 'var extractedJson =' + JSON.stringify(extractedJson)
@@ -301,7 +315,7 @@ function onWindowLoad() {
         if (this.checked) {
           currFormats[currFormats.length] = this.id;
         } else {
-          for (j = 0; j < formats.length; j++) {
+          for (j = 0; j < currFormats.length; j++) {
             if (currFormats[j] == this.id) {
               currFormats.splice(j, 1);
             }
