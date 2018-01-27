@@ -83,6 +83,9 @@ function process(key, value, level) {
       cell2.textContent = '';
       a.href = value;
       a.appendChild(img);
+      a.addEventListener("click", function () {
+        chrome.tabs.create({url: this.href});
+      });
       cell2.appendChild(a);
       temp.appendChild(tr);
     } else if (ValidURL(value)) {
