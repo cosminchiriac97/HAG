@@ -89,7 +89,10 @@ function process(key, value, level) {
       var a = document.createElement('a');
       a.href = value;
       cell2.textContent = '';
-      a.textContent = "CTRL + Click Here!";
+      a.textContent = value;
+      a.addEventListener("click", function () {
+        chrome.tabs.create({url: this.href});
+      });
       cell2.appendChild(a);
       temp.appendChild(tr);
     }
