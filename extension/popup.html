@@ -9,7 +9,7 @@
 <body>
 
     <div class="tab">
-        <!-- <button class="tablinks" id="welcomeButt">Welcome</button> -->
+        <button class="tablinks" style="display:none" id="welcomeButt">Welcome</button>
         <button class="tablinks" id="homeButt">Results</button>
         <button class="tablinks" id="settingsButt">Settings</button>
         <button class="tablinks" id="refreshButt">Refresh</button>
@@ -24,52 +24,65 @@
     </div>
 
     <div id="Settings" class="tabcontent">
-        <h3>Export as</h3>
+        <div class="optionSett">
+            <h2>Export as:</h2>
 
-        <button class="export" id="exportMicrodataButt">Microdata</button>
+            <button class="export" id="exportMicrodataButt">Microdata</button>
 
-        <button class="export" id="exportRDFaButt">RDFa</button>
+            <button class="export" id="exportRDFaButt">RDFa</button>
 
-        <button class="export" id="exportJSONLDButt">JSON-LD</button>
+            <button class="export" id="exportJSONLDButt">JSON-LD</button>
 
-        <h3>Legend</h3>
-        <table class="details" id="legend">
-            <tr>
-                <th>Tree Depth/Color</th>
-            </tr>
-            <tr>
-                <td id="level-1">1</td>
-            </tr>
-            <tr>
-                <td id="level-2">2</td>
-            </tr>
-            <tr>
-                <td id="level-3">3</td>
-            </tr>
-            <tr>
-                <td id="level-4">4</td>
-            </tr>
-            <tr>
-                <td id="level-5">5</td>
-            </tr>
-        </table>
-        <h3>Formats</h3>
-        <div id="formats">
-            <input type="checkbox" class="regcheckbox" name="format" id="JSON-LD"> JSON-LD
-            <input type="checkbox" class="regcheckbox" name="format" id="RDFa"> RDFa
-            <input type="checkbox" class="regcheckbox" name="format" id="Microdata"> Microdata
         </div>
-        <h3>Current filters</h3>
-        <input type="checkbox" class="regcheckbox" name="filters" id="filterCheck"> No filters (Checking this will erase all current filters)
-        <div id="currFilters"></div>
-        <h3>Types</h3>
-        <input id="searchTypes" type="select" placeholder="Search for type">
-        <br>
-        <div id="errorSearch"> Type not found or already added.</div>
-        <div id="validTypes"></div>
-        <button id="addFilter" class="export">Add filter</button>
-        <button id="removeFilter" class="export">Remove filter</button>
-
+        <div class="optionSett">
+            <h2>Filter by formats:</h2>
+            <div id="formats" class="checktext">
+                <input type="checkbox" class="regcheckbox" name="format" id="JSON-LD"> JSON-LD
+                <input type="checkbox" class="regcheckbox" name="format" id="RDFa"> RDFa
+                <input type="checkbox" class="regcheckbox" name="format" id="Microdata"> Microdata
+            </div>
+        </div>
+        <div class="optionSett">
+            <h2>Add types</h2>
+            <input id="searchTypes" type="select" placeholder="Search for type">
+            <br>
+            <div id="errorSearch"> Type not found or already added.</div>
+            <div id="validTypes"></div>
+            <button id="addFilter" class="export">Add filter</button>
+            <button id="removeFilter" class="export" style="float:right;">Remove filter</button>
+        </div>
+        <div class="optionSett">
+            <h2>Current filters</h2>
+            <div class="checktext">
+                <input type="checkbox" class="regcheckbox" name="filters" id="filterCheck"> No filters
+            </div>
+            <p>Note: Checking
+                <b>No filters</b> will erase all current filters</p>
+            <div id="currFilters"></div>
+        </div>
+        <div class="optionSett">
+            <h2>Legend</h2>
+            <table class="details" id="legend">
+                <tr>
+                    <th>Tree Depth/Color</th>
+                </tr>
+                <tr>
+                    <td id="level-1">1</td>
+                </tr>
+                <tr>
+                    <td id="level-2">2</td>
+                </tr>
+                <tr>
+                    <td id="level-3">3</td>
+                </tr>
+                <tr>
+                    <td id="level-4">4</td>
+                </tr>
+                <tr>
+                    <td id="level-5">5</td>
+                </tr>
+            </table>
+        </div>
     </div>
 
 
