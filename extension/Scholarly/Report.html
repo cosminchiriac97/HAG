@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <Title>WeDI Chrome Extension</Title>
+    <link rel="stylesheet" href="css/scholarly.css">
+    <script src="js/scholarly.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>WeDI Chrome Extension</h1>
+    </header>
+    <div role="contentinfo">
+        <dl>
+            <dt>Authors</dt>
+            <dd>
+                Chiriac Cosmin,
+                <!-- todo schema -->
+                Giosanu George, Domnaru Alexandru
+            </dd>
+            <dt>GitHub Repo</dt>
+            <dd>
+                <a property="url" href="https://github.com/cosminchiriac97/WeDI">Repo link</a>
+            </dd>
+            <dt>License</dt>
+            <dd>
+                <a property="url" href="http://creativecommons.org/licenses/by/4.0/">CC-BY</a>
+            </dd>
+        </dl>
+    </div>
+    <section typeof="Abstract" id="abstract" role="doc-abstract">
+        <h2>
+            <span>1. </span>Abstract</h2>
+        <p>
+            WeDI is a Chrome extension whose purpose is to detect and extract schemas requested by the user. These schemas come written
+            in the RDFa, Microdata and JSON-LD HTML5 language extensions. As such, this extension will detect all these formats.
+        </p>
+    </section>
+    <section id="progress">
+        <h2>
+            <span>2. </span>Project Progress</h2>
+        <p>
+            Initially, the project started slow, given that we misunderstood the requirements. We started on the wrong foot, but as we
+            spoke with the professor, things became clearer and the project progressed fast. We split the tasks equally and
+            made sure we coded in the same style, to avoid creating unnecessary confusion when integrating each part of the
+            project.
+        </p>
+    </section>
+    <section id="architecture">
+        <h2>
+            <span>3. </span>Project Architecture</h2>
+        <p>
+            The project was written using VanillaJS, HTML5 and CSS3. Each functionality is in its own .js file, for modularity. The extension
+            injects these scripts in the current tab, to access the DOM we wish to process. Upon finding a schema, the function
+            transforms it into JSON-LD, and added to a list of JSON's which is returned by the tab to the extension. Lastly,
+            the extension displays each JSON.
+        </p>
+    </section>
+    <section id="testing">
+        <h2>
+            <span>4. </span>Testing</h2>
+        <p>
+            The extension was tested on various sites, as well as self made pages, to make sure the functions worked correctly and outputted
+            the expected results. Some of the tested pages are:
+            <ol>
+                <li>
+                    <a property="url" href="https://www.corido.co.uk/">Corido</a>
+                </li>
+                <li>
+                    <a property="url" href="https://www.facebook.com/NuDoarOPauzadeCafea/">Fika</a>
+                </li>
+                <li>
+                    <a property="url" href="https://schema.org/Movie">Schema.org</a>
+                </li>
+            </ol>
+            These pages contains either JSON-LD, RDFa, Microdata, or combinations of them.
+        </p>
+    </section>
+</body>
+
+</html>
