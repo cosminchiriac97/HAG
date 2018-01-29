@@ -312,11 +312,13 @@ function onWindowLoad() {
         document.getElementById("currFilters").style.display = "none";
         document.getElementById("addFilter").disabled = true;
         document.getElementById("removeFilter").disabled = true;
+        document.getElementById("typesSection").style.display = "none";
         saveFilters(null);
       } else {
         document.getElementById("currFilters").style.display = "block";
         document.getElementById("addFilter").disabled = false;
         document.getElementById("removeFilter").disabled = false;
+        document.getElementById("typesSection").style.display = "block";
         currTypes = [];
         updateFilters();
       }
