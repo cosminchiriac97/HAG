@@ -17,6 +17,10 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* headers & headings */
 header > h1 {
   margin: 0;
@@ -32,7 +36,7 @@ div.banner > img {
 }
 div.banner > div.status {
   color: #fff;
-  background: #9400bf;
+  background: #ff8c0f;
   width: 350px;
   padding: 10px;
   text-align: right;
@@ -40,8 +44,8 @@ div.banner > div.status {
 h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.0375em;
 }
-h1, h2 {
-  color: #4b0061;
+h1, h2, h3 {
+  color: #ff8c0f;
 }
 h2 {
   margin-top: 3em;
