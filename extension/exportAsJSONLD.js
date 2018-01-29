@@ -1,10 +1,12 @@
 function generateJSONLDs(document_root) {
-    var html = '';
+    var html = '{';
     for (var i = 0; i < extractedJson.length; i++) {
-        html += '<script type="application/ld+json">';
+        html += '"' + extractedJson[i]['@type'] + '' + i + '": ';
         html += JSON.stringify(extractedJson[i]);
-        html += '</script>';
+        if (i != extractedJson.length - 1) { html += ','; }
+
     }
+    html += '}';
     return html;
 }
 chrome.runtime.sendMessage({
