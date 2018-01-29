@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <Title>WeDI Chrome Extension</Title>
+    <link rel="stylesheet" href="css/scholarly.css">
+    <script src="js/scholarly.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="banner">
+            <img src="../icon.png" alt="WeDI logo">
+        </div>
+        <h1>WeDI Chrome Extension</h1>
+    </header>
+    <div role="contentinfo">
+        <dl>
+            <dt>Authors</dt>
+            <dd>
+                <div property="Person" typeof="Person">
+                    <span property="name">Chiriac Cosmin</span>,</div>
+                <div property="Person" typeof="Person">
+                    <span property="name">Domnaru Alexandru</span>,</div>
+                <div property="Person" typeof="Person">
+                    <span property="name">Giosanu George</span>
+                </div>
+            </dd>
+            <dt>GitHub Repo</dt>
+            <dd>
+                <a property="url" href="https://github.com/cosminchiriac97/WeDI">Repo link</a>
+            </dd>
+            <dt>License</dt>
+            <dd>
+                <a property="url" href="http://creativecommons.org/licenses/by/4.0/">CC-BY</a>
+            </dd>
+        </dl>
+    </div>
+    <section typeof="Abstract" id="abstract" role="doc-abstract">
+        <h2>
+            <span>1. </span>WeDI Chrome Extension How-To</h2>
+        <p>
+            Using the extension is easy. First and foremost, click on the
+            <img width="20" height="20" src="../icon.png"> icon found on the top-right corner of your browser. This will open the menu, which should look like
+            <img src="tutorial/tutorial1.png" alt="menu">
+        </p>
+    </section>
+    <section id="Settings">
+        <h2>
+            <span>2. </span>Settings</h2>
+        <p>
+            <div>
+                Pressing the "Settings" button found in the menu gives access to the extensions settings. The setting panel has several options
+                which can be modified.</div>
+            <div>
+                The first option refers to the formats which should be searched for.
+
+                <img src="tutorial/tutorial2.png"> <div>Unticking or ticking a format will remove, respectively add the format to be searched. The second option
+                gives you the ability to add filters (e.g. Person, Action, Movie) or remove them. There are implicit types
+                which are showed by the extensions, or custom types, which you may create to be used as filters.</div>
+            </div>
+
+            <div>
+                <img src="tutorial/tutorial3.png"> <div>Ticking the "No filters" box removes all the added filters (even the custom ones) and instead searches for
+                every type on the page. Once an option is changed, you should press the "Refresh" button in order to apply
+                the filters and formats you added.</div>
+            </div>
+
+            <div>
+                The settings panel also features a "Legend" panel.
+                <img src="tutorial/tutorial8.png">
+            </div>
+
+            <div>
+                The settings panel has an exporting feature, allowing you to export the results as HTML pages which use the RDFa/Microdata/JSON-LD
+                formats
+                <img src="tutorial/tutorial7.png">
+            </div>
+        </p>
+    </section>
+    <section id="Results">
+        <h2>
+            <span>3. </span>Results</h2>
+        <p>
+            <div>
+                Pressing the "Results" button searches and displays all the types and formats ticked in the settings panel. For example,
+                if we want to look for JSON-LD and Microdata formats only, and the types we want are "BlogPosting" and "LocalBusiness",
+                the settings would look like this:
+                <img src="tutorial/tutorial4.png">
+            </div>
+            <div>
+                And the results would look like:
+                <img src="tutorial/tutorial5.png">
+            </div>
+            <div>
+                To look at a result, simply click on it. The contents of a result should look like: >
+                <img src="tutorial/tutorial6.png">
+            </div>
+            If the options are changed, you should click on the "Refresh" button to get the new results.
+        </p>
+    </section>
+</body>
+
+</html>
