@@ -3,11 +3,7 @@
 @import "../fonts/roboto.css";
 @import "../fonts/roboto-mono.css";
 
-/*
-  XXX
-  figure styles
-  links
-*/
+
 
 body {
   max-width: 21cm;
@@ -20,16 +16,15 @@ body {
 a {
   text-decoration: none;
 }
-
+#logo {
+  float: right;
+  width: 10%;
+}
 /* headers & headings */
 header > h1 {
   margin: 0;
   font-size: 3em;
   padding-top: 4em;
-}
-div.banner {
-  display: flex;
-  justify-content: space-between;
 }
 div.banner > img {
   height: 100%;
@@ -45,7 +40,7 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.0375em;
 }
 h1, h2, h3 {
-  color: #ff8c0f;
+  color: #4b0061;
 }
 h2 {
   margin-top: 3em;
@@ -92,7 +87,10 @@ p.issue {
   border-left: 3px solid red;
   padding: 0.5em 1em;
 }
+p {
+  text-indent: 50px;
 
+}
 @media screen and (max-width: 577px) {
   div.status {
     width: auto;

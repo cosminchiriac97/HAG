@@ -12,7 +12,7 @@
 <body>
     <header>
         <div class="banner">
-            <img src="../icon.png" alt="WeDI logo">
+            <img id="logo" src="../icon.png" alt="WeDI logo">
         </div>
         <h1>WeDI Chrome Extension</h1>
     </header>
@@ -63,13 +63,14 @@
             The project was written using VanillaJS, HTML5 and CSS3. Each functionality is in its own .js file, for modularity. The extension
             injects these scripts in the current tab, to access the DOM we wish to process. Upon finding a schema, the function
             transforms it into JSON-LD, and added to a list of JSON's which is returned by the tab to the extension. Lastly,
-            the extension displays each JSON.
+            the extension displays each JSON in tables, each depth being highlighted with a different color (a legend of
+            that is shown in the settings tab).
             <div>
                 <h3>
                     <span>3.1 </span>Splitting the project</h3>
                 <p>
                     We split the project in 3 main parts: parsing the DOM for RDFa and transforming it into JSON-LD, parsing the DOM for Microdata
-                    and transforming it into JSON-LD, and the front-end part which included parsing JSON-LD's.
+                    and transforming it into JSON-LD, and the front-end part which included parsing JSON-LD's. 
                 </p>
                 <h3>
                     <span>3.2 </span>RDFa</h3>
@@ -77,6 +78,27 @@
                     To parse the DOM for RDFa, we used a recursive algorithm which searches for the elements annotated with "typeof". The element
                     is then checked for properties, and then processed accordingly. The algorithm then goes further to the
                     processed element's children.
+                </p>
+                <h3>
+                    <span>3.3 </span>JSON-LD</h3>
+                <p>
+                    For the JSON-LD parsing we use quite an easy approach. We simply extract the
+                    <b>script</b> tagged elements, we filter them by their type ("application/ld+json"), and then we just parse
+                    the inner JSONs. 
+                </p>
+                <h3>
+                    <span>3.4 </span>Microdata</h3>
+                <p>
+                    The extract method is very similar to the RDFa one. The algorithm iterates thru the DOM in search for the specified types,
+                    once he founds it, then it recursively collects data further in order to create ultimately, a json. All the JSON-LDs generated
+                    are sent to the extention's script that transforms it into a table in the user interface.
+                </p>
+                <h3>
+                    <span>3.5 </span>Exports</h3>
+                <p>
+                    All the resulted data after scrapping a webpage accordingly to the user's filters can be exported as either one of the formats ( Microdata,
+                    JSON-LD and RDFa). For both Microdata and RDFa there is a script for each one that receives a JSON-LD and parses it into a HTML file, or 
+                    straight JSON.
                 </p>
             </div>
         </p>
