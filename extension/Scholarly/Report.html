@@ -65,17 +65,19 @@
             transforms it into JSON-LD, and added to a list of JSON's which is returned by the tab to the extension. Lastly,
             the extension displays each JSON.
             <div>
-                    <h3><span>3.1 </span>Splitting the project</h3>
-                    <p>
-                        We split the project in 3 main parts: parsing the DOM for RDFa and transforming it into JSON-LD,
-                        parsing the DOM for Microdata and transforming it into JSON-LD, and the front-end part which included parsing JSON-LD's.
-                    </p>
-                    <h3><span>3.2 </span>RDFa</h3>
-                    <p>
-                        To parse the DOM for RDFa, we used a recursive algorithm which searches for the elements annotated with "typeof".
-                        The element is then checked for properties, and then processed accordingly.
-                        The algorithm then goes further to the processed element's children.
-                    </p>
+                <h3>
+                    <span>3.1 </span>Splitting the project</h3>
+                <p>
+                    We split the project in 3 main parts: parsing the DOM for RDFa and transforming it into JSON-LD, parsing the DOM for Microdata
+                    and transforming it into JSON-LD, and the front-end part which included parsing JSON-LD's.
+                </p>
+                <h3>
+                    <span>3.2 </span>RDFa</h3>
+                <p>
+                    To parse the DOM for RDFa, we used a recursive algorithm which searches for the elements annotated with "typeof". The element
+                    is then checked for properties, and then processed accordingly. The algorithm then goes further to the
+                    processed element's children.
+                </p>
             </div>
         </p>
     </section>
@@ -98,17 +100,33 @@
                 <li>
                     <a property="url" href="TestWEDI/TestWEDI.html">Our very own html testing page</a>
                 </li>
-
                 <li>
                     <a property="url" href="https://www.bendyandtheinkmachine.com/">Bendy and the Ink machine</a>
                 </li>
             </ol>
-            These pages contains either JSON-LD, RDFa, Microdata, or combinations of them.
-            In order to compare results, we used 
-            <a property="url" href="https://search.google.com/structured-data/testing-tool/u/0/">Google's Testing Tool</a>, as well as extensions featuring the same functionalities: 
+            These pages contains either JSON-LD, RDFa, Microdata, or combinations of them. In order to compare results, we used
+            <a property="url" href="https://search.google.com/structured-data/testing-tool/u/0/">Google's Testing Tool</a>, as well as extensions featuring the same functionalities:
             <a property="url" href="https://chrome.google.com/webstore/detail/openlink-structured-data/egdaiaihbdoiibopledjahjaihbmjhdj?hl=en">OpenLink Structured Data Sniffer</a>
             <a property="url" href="https://chrome.google.com/webstore/detail/structured-data-testing-t/kfdjeigpgagildmolfanniafmplnplpl?hl=en">Structured Data Testing</a>
         </p>
+        <section id="comparison">
+            <h2>
+                <span>5. </span>Comparison between results using different tools</h2>
+            <p>In this comparison we used
+                <a property="url" href="https://www.corido.co.uk/">Corido</a> as test website</p>
+            <div>
+                <span>WeDI Chrome Extension</span>
+                <img src="comparison1.png">
+            </div>
+            <div>
+                <span>Structured Data Testing Tool</span>
+                <img src="comparison2.png">
+            </div>
+            <div>
+                <span>Google's Structured Data Tool</span>
+                <img src="comparison3.png">
+            </div>
+        </section>
     </section>
 </body>
 
